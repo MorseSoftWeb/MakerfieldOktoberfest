@@ -9,6 +9,10 @@
 <meta property="og:description" content="Friday 16 &amp; Saturday 17 October 2026 — 1st Ashton Scout Group. German beer, local ale, street food and live music. Tickets from £6.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
+<!-- og:image must be an absolute URL — this starts working once the domain is live -->
+<meta property="og:image" content="https://www.makerfieldoktoberfest.co.uk/Logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="Logo.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* ---------- tokens : light (default, un-stamped) ---------- */
@@ -125,16 +129,12 @@ p{margin:0;}
   border-bottom:1px solid var(--rule);
 }
 .hero-inner{display:flex;flex-direction:column;gap:1.6rem;}
-.logo-slot{
+.logo{
   align-self:flex-start;
-  border:1.5px dashed var(--rule);
-  color:var(--muted);
-  padding:.6rem 1rem;
-  border-radius:3px;
-  font-family:"IBM Plex Mono",monospace;
-  font-size:.68rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+  height:clamp(72px,11vw,132px);
+  width:auto;
+  max-width:min(100%,320px);
+  object-fit:contain;
 }
 .hero h1{
   font-size:clamp(3rem,12.5vw,8.4rem);
@@ -282,7 +282,7 @@ footer{padding:2.75rem 0 3.5rem;}
 
 <header class="hero">
   <div class="wrap hero-inner">
-    <div class="logo-slot">Logo goes here</div>
+    <img class="logo" src="Logo.png" alt="Makerfield Oktoberfest" width="360" height="360">
     <h1 class="display">Makerfield<br>Oktoberfest <span class="yr">’26</span></h1>
     <div class="dateline">
       <span class="big">Fri 16 &amp; Sat 17 October</span>
