@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Makerfield Oktoberfest</title>
+<meta name="description" content="A two-day Bavarian beer festival in Ashton-in-Makerfield. Friday 16 &amp; Saturday 17 October 2026. German beer, local ale, street food and live music, raising money for good causes.">
+<meta property="og:title" content="Makerfield Oktoberfest 2026">
+<meta property="og:description" content="Friday 16 &amp; Saturday 17 October 2026 — 1st Ashton Scout Group. German beer, local ale, street food and live music. Tickets from £6.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ---------- tokens : light (default, un-stamped) ---------- */
+:root{
+  --paper:#EEF2F9;          /* cool blue-white, not the usual cream */
+  --surface:#FBFAF6;        /* warm foam, lifts off the cool ground */
+  --surface-2:#E3E9F3;
+  --ink:#14203A;            /* deep Bavarian navy */
+  --ink-soft:#46536D;
+  --muted:#67728A;          /* neutral biased blue, toward the accent's partner */
+  --rule:#C8D2E2;
+  --amber:#A9581A;          /* Märzen — the one bold colour */
+  --amber-soft:#F0E0CB;
+  --blue:#356BAE;           /* Bavarian flag blue */
+  --blue-soft:#DCE6F5;
+  --lozenge-a:#356BAE;
+  --lozenge-b:#F7FAFF;
+  --focus:#A9581A;
+  --shadow:0 1px 2px rgba(20,32,58,.06), 0 8px 24px -12px rgba(20,32,58,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1422;
+    --surface:#161E30;
+    --surface-2:#1D2739;
+    --ink:#EDF1F8;
+    --ink-soft:#B9C3D6;
+    --muted:#8C99B2;
+    --rule:#2B3752;
+    --amber:#E9963C;
+    --amber-soft:#3A2A17;
+    --blue:#79A6E0;
+    --blue-soft:#1B2942;
+    --lozenge-a:#2E5A94;
+    --lozenge-b:#0E1422;
+    --focus:#E9963C;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1422;
+  --surface:#161E30;
+  --surface-2:#1D2739;
+  --ink:#EDF1F8;
+  --ink-soft:#B9C3D6;
+  --muted:#8C99B2;
+  --rule:#2B3752;
+  --amber:#E9963C;
+  --amber-soft:#3A2A17;
+  --blue:#79A6E0;
+  --blue-soft:#1B2942;
+  --lozenge-a:#2E5A94;
+  --lozenge-b:#0E1422;
+  --focus:#E9963C;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:1.0625rem;
+  line-height:1.62;
+  font-optical-sizing:auto;
+}
+img{max-width:100%;display:block;}
+a{color:var(--amber);text-underline-offset:.18em;text-decoration-thickness:.06em;}
+a:hover{color:var(--ink);}
+:focus-visible{outline:2.5px solid var(--focus);outline-offset:3px;border-radius:2px;}
+
+.wrap{width:min(68rem,100% - 2.5rem);margin-inline:auto;}
+.measure{max-width:34rem;}
+
+/* ---------- typographic system ---------- */
+.display{
+  font-family:"Anton",Impact,"Haettenschweiler","Arial Narrow Bold",sans-serif;
+  font-weight:400;
+  letter-spacing:.005em;
+  line-height:.92;
+  text-transform:uppercase;
+  text-wrap:balance;
+}
+.label{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;}
+
+h2.display{font-size:clamp(1.9rem,4.6vw,2.9rem);margin:0;}
+h3{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.2rem;margin:0;line-height:1.3;}
+p{margin:0;}
+
+/* ---------- Bavarian lozenge band : the one motif ---------- */
+.lozenge{
+  height:22px;
+  background-color:var(--lozenge-b);
+  background-image:
+    linear-gradient(45deg, var(--lozenge-a) 25%, transparent 25% 75%, var(--lozenge-a) 75%),
+    linear-gradient(45deg, var(--lozenge-a) 25%, transparent 25% 75%, var(--lozenge-a) 75%);
+  background-size:30px 30px;
+  background-position:0 0, 15px 15px;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  padding:clamp(2.5rem,7vw,5rem) 0 clamp(2rem,5vw,3.25rem);
+  border-bottom:1px solid var(--rule);
+}
+.hero-inner{display:flex;flex-direction:column;gap:1.6rem;}
+.logo-slot{
+  align-self:flex-start;
+  border:1.5px dashed var(--rule);
+  color:var(--muted);
+  padding:.6rem 1rem;
+  border-radius:3px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(3rem,12.5vw,8.4rem);
+  margin:0;
+  color:var(--ink);
+}
+.hero h1 .yr{color:var(--amber);}
+.dateline{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.55rem 1.1rem;
+  padding-top:.4rem;
+}
+.dateline .big{
+  font-family:"Anton","Arial Narrow",Impact,system-ui,sans-serif;
+  font-size:clamp(1.5rem,4.4vw,2.4rem);
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  line-height:1;
+}
+.dateline .at{color:var(--muted);font-size:1.02rem;font-style:italic;}
+.standfirst{font-size:clamp(1.1rem,2.2vw,1.32rem);color:var(--ink-soft);max-width:38rem;}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;padding-top:.35rem;}
+.btn{
+  display:inline-block;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:.85rem 1.5rem;border-radius:3px;text-decoration:none;
+  transition:transform .12s ease, background-color .12s ease;
+}
+.btn-primary{background:var(--amber);color:#FFF9F0;border:1.5px solid var(--amber);}
+.btn-primary:hover{color:#FFF9F0;transform:translateY(-1px);}
+.btn-ghost{border:1.5px solid var(--rule);color:var(--ink);background:transparent;}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+@media (prefers-reduced-motion:reduce){.btn{transition:none;} .btn-primary:hover{transform:none;}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(2.75rem,6vw,4.5rem) 0;border-bottom:1px solid var(--rule);}
+.sec-head{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem;}
+
+/* what's on — typographic list, deliberately not cards */
+.bill{display:grid;gap:0;border-top:1px solid var(--rule);}
+.bill-item{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:.3rem;
+  padding:1.15rem 0;border-bottom:1px solid var(--rule);
+}
+@media(min-width:44rem){
+  .bill-item{grid-template-columns:14rem minmax(0,1fr);gap:1.5rem;align-items:baseline;}
+}
+.bill-item h3{color:var(--ink);}
+.bill-item p{color:var(--muted);font-size:.98rem;}
+
+/* when — two days, real structure */
+.days{display:grid;gap:1.25rem;}
+@media(min-width:44rem){.days{grid-template-columns:1fr 1fr;gap:1.5rem;}}
+.day{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:1.5rem;display:flex;flex-direction:column;gap:.9rem;
+}
+.day-name{font-family:"Anton","Arial Narrow",Impact,system-ui,sans-serif;text-transform:uppercase;font-size:1.5rem;line-height:1;}
+.day-name span{color:var(--amber);}
+.timeline{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--blue-soft);padding-left:1rem;margin:0;}
+.tl{display:flex;gap:.85rem;align-items:baseline;padding:.42rem 0;position:relative;}
+.tl::before{
+  content:"";position:absolute;left:-1.34rem;top:.95rem;
+  width:8px;height:8px;border-radius:50%;background:var(--blue);
+}
+.tl.key::before{background:var(--amber);}
+.tl time,.tl .t{
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;
+  font-variant-numeric:tabular-nums;color:var(--ink-soft);min-width:5.2rem;
+}
+.tl .what{font-size:.97rem;}
+.tl.key .what{color:var(--amber);font-weight:600;}
+
+/* tickets — the one place cards are the right object */
+.tickets{display:grid;gap:1rem;}
+@media(min-width:40rem){.tickets{grid-template-columns:1fr 1fr;}}
+.ticket{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:1.4rem;display:flex;flex-direction:column;gap:.55rem;
+  position:relative;
+}
+.ticket.feature{border-color:var(--amber);box-shadow:var(--shadow);}
+.ticket-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
+.ticket-name{
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink);
+}
+.price{font-family:"Anton","Arial Narrow",Impact,system-ui,sans-serif;font-size:1.85rem;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums;}
+.ticket p{color:var(--muted);font-size:.95rem;}
+.ticket .tag{
+  align-self:flex-start;margin-top:.15rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--amber-soft);color:var(--amber);
+  padding:.22rem .5rem;border-radius:2px;font-weight:600;
+}
+.ticket-note{color:var(--muted);font-size:.93rem;margin-top:1.25rem;}
+
+/* ticket tailor widget slot */
+.widget-slot{
+  margin-top:1.75rem;border:1.5px dashed var(--rule);border-radius:4px;
+  padding:2rem 1.25rem;text-align:center;color:var(--muted);
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.09em;
+  text-transform:uppercase;line-height:1.9;
+}
+
+/* where */
+.where-grid{display:grid;gap:1.75rem;}
+@media(min-width:44rem){.where-grid{grid-template-columns:1.1fr 1fr;gap:2.5rem;}}
+address{font-style:normal;font-size:1.12rem;line-height:1.75;}
+address .venue{font-weight:600;}
+.facts{display:grid;gap:0;border-top:1px solid var(--rule);margin:0;}
+.facts>div{display:flex;justify-content:space-between;gap:1.25rem;padding:.72rem 0;border-bottom:1px solid var(--rule);}
+.facts dt{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;padding-top:.22rem;}
+.facts dd{margin:0;text-align:right;font-size:.98rem;}
+
+/* know */
+.know{display:grid;gap:1.1rem;}
+@media(min-width:44rem){.know{grid-template-columns:1fr 1fr;gap:1.1rem 2.5rem;}}
+.know-item{display:flex;flex-direction:column;gap:.25rem;padding-bottom:1.1rem;border-bottom:1px solid var(--rule);}
+.know-item h3{font-size:1.02rem;}
+.know-item p{color:var(--muted);font-size:.96rem;}
+
+/* sponsors */
+.sponsor-band{background:var(--surface-2);}
+.packages{display:grid;gap:.9rem;margin-top:1.5rem;}
+@media(min-width:40rem){.packages{grid-template-columns:repeat(3,1fr);}}
+.pkg{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1.25rem;display:flex;flex-direction:column;gap:.4rem;}
+.pkg .amt{font-family:"Anton","Arial Narrow",Impact,system-ui,sans-serif;font-size:1.6rem;line-height:1;color:var(--amber);}
+.pkg h3{font-size:1rem;}
+.pkg p{color:var(--muted);font-size:.93rem;}
+
+/* rotary / why */
+.why p{font-size:1.14rem;color:var(--ink-soft);}
+.why p + p{margin-top:1rem;}
+
+footer{padding:2.75rem 0 3.5rem;}
+.foot{display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;justify-content:space-between;align-items:flex-start;}
+.foot p{color:var(--muted);font-size:.9rem;}
+.tbc{color:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;}
+</style>
+</head>
+<body>
+
+<div class="lozenge" role="presentation"></div>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="logo-slot">Logo goes here</div>
+    <h1 class="display">Makerfield<br>Oktoberfest <span class="yr">’26</span></h1>
+    <div class="dateline">
+      <span class="big">Fri 16 &amp; Sat 17 October</span>
+      <span class="at">1st Ashton Scout Group, Ashton-in-Makerfield</span>
+    </div>
+    <p class="standfirst">German beer poured properly, local craft ale and cider, hot street food and live music — two days of it, right here in Ashton. Every penny of profit goes to good causes.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#tickets">Buy tickets</a>
+      <a class="btn btn-ghost" href="#when">Opening times</a>
+    </div>
+  </div>
+</header>
+
+<section id="whats-on">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">The bill</span>
+      <h2 class="display">What&rsquo;s on</h2>
+    </div>
+    <div class="bill">
+      <div class="bill-item">
+        <h3>A full German bar</h3>
+        <p>Märzen, Helles and wheat beer on tap, poured into a glass that&rsquo;s yours to take home.</p>
+      </div>
+      <div class="bill-item">
+        <h3>Local craft ale &amp; cider</h3>
+        <p>For anyone who&rsquo;d rather stay closer to home. Brewed within striking distance of Ashton.</p>
+      </div>
+      <div class="bill-item">
+        <h3>Hot German street food</h3>
+        <p>Bratwurst, currywurst and pretzels, served through the afternoon and into the evening.</p>
+      </div>
+      <div class="bill-item">
+        <h3>Live music</h3>
+        <p><span class="tbc">[Act to be confirmed]</span> — playing both evenings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="when">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Opening times</span>
+      <h2 class="display">Two days, two moods</h2>
+      <p class="measure" style="color:var(--muted);padding-top:.4rem;">Come down early with the family, or come later for the big one. Under-18s are welcome free of charge until 8.30pm, accompanied by an adult — from 8.30pm the festival is over-18s only.</p>
+    </div>
+    <div class="days">
+      <div class="day">
+        <div class="day-name">Friday <span>16 Oct</span></div>
+        <dl class="timeline">
+          <div class="tl"><span class="t">3:00pm</span><span class="what">Doors open</span></div>
+          <div class="tl key"><span class="t">8:30pm</span><span class="what">Over-18s only from here</span></div>
+          <div class="tl"><span class="t">11:00pm</span><span class="what">Last orders</span></div>
+        </dl>
+      </div>
+      <div class="day">
+        <div class="day-name">Saturday <span>17 Oct</span></div>
+        <dl class="timeline">
+          <div class="tl"><span class="t">12:00pm</span><span class="what">Doors open</span></div>
+          <div class="tl key"><span class="t">8:30pm</span><span class="what">Over-18s only from here</span></div>
+          <div class="tl"><span class="t">11:00pm</span><span class="what">Last orders</span></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tickets">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Tickets</span>
+      <h2 class="display">From £6</h2>
+      <p class="measure" style="color:var(--muted);padding-top:.4rem;">Every ticket includes entry and a Makerfield Oktoberfest glass to keep.</p>
+    </div>
+    <div class="tickets">
+      <div class="ticket">
+        <div class="ticket-top"><span class="ticket-name">Day — entry + glass</span><span class="price">£6</span></div>
+        <p>Entry for one day, plus your festival glass. Buy drinks and food on the day.</p>
+      </div>
+      <div class="ticket">
+        <div class="ticket-top"><span class="ticket-name">Weekend — entry + glass</span><span class="price">£10</span></div>
+        <p>Entry on both Friday and Saturday, plus your festival glass.</p>
+      </div>
+      <div class="ticket feature">
+        <div class="ticket-top"><span class="ticket-name">Day + £10 tokens</span><span class="price">£15</span></div>
+        <p>Entry for one day, your glass, and £10 of drinks tokens ready and waiting. Straight to the bar — no queuing at the token stand.</p>
+        <span class="tag">Best for one big day</span>
+      </div>
+      <div class="ticket feature">
+        <div class="ticket-top"><span class="ticket-name">Weekend + £10 tokens</span><span class="price">£18</span></div>
+        <p>Entry on both days, your glass, and £10 of drinks tokens ready and waiting.</p>
+        <span class="tag">Best value</span>
+      </div>
+    </div>
+    <p class="ticket-note">Extra tokens can be bought at the token stand throughout the festival. Under-18s go free before 8.30pm but still need a free ticket, so we know how many to expect.</p>
+
+    <!-- ============================================================
+         TICKET TAILOR WIDGET
+         Replace this entire <div class="widget-slot"> block with the
+         embed code from Ticket Tailor:
+         Box office → Widgets → copy the <script> + <div> snippet.
+         ============================================================ -->
+    <div class="widget-slot">
+      Ticket Tailor box office widget<br>drops in here
+    </div>
+  </div>
+</section>
+
+<section id="where">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Getting there</span>
+      <h2 class="display">Where</h2>
+    </div>
+    <div class="where-grid">
+      <div>
+        <address>
+          <span class="venue">1st Ashton Scout Group</span><br>
+          6 Edgerley Place<br>
+          Ashton-in-Makerfield<br>
+          Wigan <span class="mono">WN4 9JX</span>
+        </address>
+        <p style="margin-top:1.1rem;"><a href="https://www.google.com/maps/search/?api=1&amp;query=6+Edgerley+Place+Ashton-in-Makerfield+WN4+9JX">Open in Google Maps</a></p>
+      </div>
+      <dl class="facts">
+        <div><dt>Parking</dt><dd class="tbc">[To confirm]</dd></div>
+        <div><dt>Accessibility</dt><dd class="tbc">[To confirm]</dd></div>
+        <div><dt>Token stand</dt><dd class="tbc">[Card / cash]</dd></div>
+        <div><dt>Indoor</dt><dd class="tbc">[To confirm]</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="good-to-know">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Before you come</span>
+      <h2 class="display">Good to know</h2>
+    </div>
+    <div class="know">
+      <div class="know-item">
+        <h3>Bring photo ID</h3>
+        <p>Challenge 25 is in operation. If you look under 25, please bring ID — no ID, no service, no exceptions.</p>
+      </div>
+      <div class="know-item">
+        <h3>Under-18s</h3>
+        <p>Welcome free of charge until 8.30pm when accompanied by an adult. From 8.30pm the festival is over-18s only.</p>
+      </div>
+      <div class="know-item">
+        <h3>Refunds</h3>
+        <p>Tickets are non-refundable.</p>
+      </div>
+      <div class="know-item">
+        <h3>Drink responsibly</h3>
+        <p>We reserve the right to refuse entry, or to ask anyone to leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sponsors" class="sponsor-band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">For businesses</span>
+      <h2 class="display">Sponsor a barrel</h2>
+      <p class="measure" style="color:var(--muted);padding-top:.4rem;">Put your name on the bar, in front of a room full of local people, and behind a good cause at the same time.</p>
+    </div>
+    <div class="packages">
+      <div class="pkg">
+        <span class="amt">£110</span>
+        <h3>Sponsor a keg or cider</h3>
+        <p>Your name on the barrel and on the festival board.</p>
+      </div>
+      <div class="pkg">
+        <span class="amt">£75</span>
+        <h3>Sponsor a spirit</h3>
+        <p>Your name on the optic and on the festival board.</p>
+      </div>
+      <div class="pkg">
+        <span class="amt">Bespoke</span>
+        <h3>Something else in mind?</h3>
+        <p>Tell us what you&rsquo;d like and we&rsquo;ll put a package together.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="mailto:sponsors@makerfieldoktoberfest.co.uk">Email sponsors@</a></p>
+  </div>
+</section>
+
+<section id="why" class="why">
+  <div class="wrap measure">
+    <div class="sec-head">
+      <span class="label">Why we&rsquo;re doing it</span>
+      <h2 class="display">Every penny</h2>
+    </div>
+    <p>Makerfield Oktoberfest is run by the Rotary Club of Newton-le-Willows, and every penny of profit goes to good causes.</p>
+    <p>Have a brilliant day, and do a bit of good while you&rsquo;re at it.</p>
+    <p style="font-size:.92rem;color:var(--muted);margin-top:1.5rem;"><span class="tbc">[Registered charity no. to confirm]</span></p>
+  </div>
+</section>
+
+<div class="lozenge" role="presentation"></div>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p style="color:var(--ink);font-weight:600;">Makerfield Oktoberfest</p>
+      <p>Friday 16 &amp; Saturday 17 October 2026</p>
+    </div>
+    <div>
+      <p><a href="mailto:info@makerfieldoktoberfest.co.uk">info@makerfieldoktoberfest.co.uk</a></p>
+      <p>Run by the Rotary Club of Newton-le-Willows</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+[
+{
+  "@context":"https://schema.org",
+  "@type":"Festival",
+  "name":"Makerfield Oktoberfest 2026 — Friday",
+  "startDate":"2026-10-16T15:00:00+01:00",
+  "endDate":"2026-10-16T23:00:00+01:00",
+  "eventStatus":"https://schema.org/EventScheduled",
+  "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+  "description":"A Bavarian beer festival in Ashton-in-Makerfield with German beer, local craft ale and cider, hot street food and live music. Run by the Rotary Club of Newton-le-Willows.",
+  "location":{
+    "@type":"Place",
+    "name":"1st Ashton Scout Group",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"6 Edgerley Place",
+      "addressLocality":"Ashton-in-Makerfield",
+      "addressRegion":"Wigan",
+      "postalCode":"WN4 9JX",
+      "addressCountry":"GB"
+    }
+  },
+  "organizer":{"@type":"Organization","name":"Rotary Club of Newton-le-Willows"},
+  "offers":{
+    "@type":"Offer",
+    "price":"6",
+    "priceCurrency":"GBP",
+    "availability":"https://schema.org/InStock",
+    "url":"https://www.makerfieldoktoberfest.co.uk/#tickets"
+  }
+},
+{
+  "@context":"https://schema.org",
+  "@type":"Festival",
+  "name":"Makerfield Oktoberfest 2026 — Saturday",
+  "startDate":"2026-10-17T12:00:00+01:00",
+  "endDate":"2026-10-17T23:00:00+01:00",
+  "eventStatus":"https://schema.org/EventScheduled",
+  "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+  "description":"A Bavarian beer festival in Ashton-in-Makerfield with German beer, local craft ale and cider, hot street food and live music. Run by the Rotary Club of Newton-le-Willows.",
+  "location":{
+    "@type":"Place",
+    "name":"1st Ashton Scout Group",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"6 Edgerley Place",
+      "addressLocality":"Ashton-in-Makerfield",
+      "addressRegion":"Wigan",
+      "postalCode":"WN4 9JX",
+      "addressCountry":"GB"
+    }
+  },
+  "organizer":{"@type":"Organization","name":"Rotary Club of Newton-le-Willows"},
+  "offers":{
+    "@type":"Offer",
+    "price":"6",
+    "priceCurrency":"GBP",
+    "availability":"https://schema.org/InStock",
+    "url":"https://www.makerfieldoktoberfest.co.uk/#tickets"
+  }
+}
+]
+</script>
+
+</body>
+</html>
