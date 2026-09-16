@@ -6,7 +6,7 @@
 <title>Makerfield Oktoberfest</title>
 <meta name="description" content="A two-day Bavarian beer festival in Ashton-in-Makerfield. Friday 16 &amp; Saturday 17 October 2026. German beer, local ale, street food and live music, raising money for good causes.">
 <meta property="og:title" content="Makerfield Oktoberfest 2026">
-<meta property="og:description" content="Friday 16 &amp; Saturday 17 October 2026 — 1st Ashton Scout Group. German beer, local ale, street food and live music. Tickets from £6.">
+<meta property="og:description" content="Friday 16 &amp; Saturday 17 October 2026 — 1st Ashton Scouts. German beer, local ale, street food and live music. Tickets from £6.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <!-- og:image must be an absolute URL — this starts working once the domain is live -->
@@ -201,6 +201,8 @@ section{padding:clamp(2.75rem,6vw,4.5rem) 0;border-bottom:1px solid var(--rule);
   width:8px;height:8px;border-radius:50%;background:var(--blue);
 }
 .tl.key::before{background:var(--amber);}
+.tl.act::before{background:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);}
+.tl.act .what{color:var(--blue);font-weight:600;}
 .tl time,.tl .t{
   font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;
   font-variant-numeric:tabular-nums;color:var(--ink-soft);min-width:5.2rem;
@@ -232,13 +234,16 @@ section{padding:clamp(2.75rem,6vw,4.5rem) 0;border-bottom:1px solid var(--rule);
 }
 .ticket-note{color:var(--muted);font-size:.93rem;margin-top:1.25rem;}
 
-/* ticket tailor widget slot */
-.widget-slot{
-  margin-top:1.75rem;border:1.5px dashed var(--rule);border-radius:4px;
-  padding:2rem 1.25rem;text-align:center;color:var(--muted);
-  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.09em;
-  text-transform:uppercase;line-height:1.9;
+/* ticket tailor widget — the iframe sizes itself, we just give it room */
+.widget{margin-top:2rem;scroll-margin-top:1.5rem;}
+.widget .tt-widget{min-height:180px;}
+.widget iframe{width:100%!important;border:0;display:block;}
+.widget .tt-widget-fallback{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:1.5rem;text-align:center;
 }
+.widget .tt-widget-fallback p{margin:0;line-height:1.9;}
+.widget .tt-widget-powered{color:var(--muted);font-size:.8rem;}
 
 /* where */
 .where-grid{display:grid;gap:1.75rem;}
@@ -249,6 +254,27 @@ address .venue{font-weight:600;}
 .facts>div{display:flex;justify-content:space-between;gap:1.25rem;padding:.72rem 0;border-bottom:1px solid var(--rule);}
 .facts dt{color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;padding-top:.22rem;}
 .facts dd{margin:0;text-align:right;font-size:.98rem;}
+
+/* travel */
+.travel{display:grid;gap:2.25rem;margin-top:2.75rem;padding-top:2.25rem;border-top:1px solid var(--rule);}
+@media(min-width:44rem){.travel{grid-template-columns:1.35fr 1fr;gap:3rem;}}
+.travel-group{display:flex;flex-direction:column;gap:.6rem;}
+.travel-intro{color:var(--muted);font-size:.97rem;}
+.travel-note{color:var(--muted);font-size:.93rem;font-style:italic;margin-top:.4rem;}
+.routes,.stations{list-style:none;margin:.4rem 0 0;padding:0;display:flex;flex-direction:column;gap:0;}
+.routes li,.stations li{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .7rem;
+  padding:.62rem 0;border-bottom:1px solid var(--rule);
+}
+.routes li:first-child,.stations li:first-child{border-top:1px solid var(--rule);}
+.route{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;font-weight:600;
+  font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  background:var(--blue-soft);color:var(--blue);
+  padding:.2rem .5rem;border-radius:2px;
+}
+.stn{font-weight:600;font-size:1rem;color:var(--ink);min-width:9.5rem;}
+.via{color:var(--muted);font-size:.93rem;flex:1 1 14rem;}
 
 /* know */
 .know{display:grid;gap:1.1rem;}
@@ -286,7 +312,7 @@ footer{padding:2.75rem 0 3.5rem;}
     <h1 class="display">Makerfield<br>Oktoberfest <span class="yr">’26</span></h1>
     <div class="dateline">
       <span class="big">Fri 16 &amp; Sat 17 October</span>
-      <span class="at">1st Ashton Scout Group, Ashton-in-Makerfield</span>
+      <span class="at">1st Ashton Scouts, Ashton-in-Makerfield</span>
     </div>
     <p class="standfirst">German beer poured properly, local craft ale and cider, hot street food and live music — two days of it, right here in Ashton. Every penny of profit goes to good causes.</p>
     <div class="cta-row">
@@ -316,8 +342,12 @@ footer{padding:2.75rem 0 3.5rem;}
         <p>Bratwurst, currywurst and pretzels, served through the afternoon and into the evening.</p>
       </div>
       <div class="bill-item">
-        <h3>Live music</h3>
-        <p><span class="tbc">[Act to be confirmed]</span> — playing both evenings.</p>
+        <h3>The Schunklers</h3>
+        <p>A proper oompah band, on stage from 7.30pm on the Friday. Bring your singing voice.</p>
+      </div>
+      <div class="bill-item">
+        <h3>DJs</h3>
+        <p>Keeping it going across the rest of the festival, both days.</p>
       </div>
     </div>
   </div>
@@ -335,6 +365,7 @@ footer{padding:2.75rem 0 3.5rem;}
         <div class="day-name">Friday <span>16 Oct</span></div>
         <dl class="timeline">
           <div class="tl"><span class="t">3:00pm</span><span class="what">Doors open</span></div>
+          <div class="tl act"><span class="t">7:30pm</span><span class="what">The Schunklers — live oompah</span></div>
           <div class="tl key"><span class="t">8:30pm</span><span class="what">Over-18s only from here</span></div>
           <div class="tl"><span class="t">11:00pm</span><span class="what">Last orders</span></div>
         </dl>
@@ -343,6 +374,7 @@ footer{padding:2.75rem 0 3.5rem;}
         <div class="day-name">Saturday <span>17 Oct</span></div>
         <dl class="timeline">
           <div class="tl"><span class="t">12:00pm</span><span class="what">Doors open</span></div>
+          <div class="tl act"><span class="t">All day</span><span class="what">DJs</span></div>
           <div class="tl key"><span class="t">8:30pm</span><span class="what">Over-18s only from here</span></div>
           <div class="tl"><span class="t">11:00pm</span><span class="what">Last orders</span></div>
         </dl>
@@ -380,14 +412,9 @@ footer{padding:2.75rem 0 3.5rem;}
     </div>
     <p class="ticket-note">Extra tokens can be bought at the token stand throughout the festival. Under-18s go free before 8.30pm but still need a free ticket, so we know how many to expect.</p>
 
-    <!-- ============================================================
-         TICKET TAILOR WIDGET
-         Replace this entire <div class="widget-slot"> block with the
-         embed code from Ticket Tailor:
-         Box office → Widgets → copy the <script> + <div> snippet.
-         ============================================================ -->
-    <div class="widget-slot">
-      Ticket Tailor box office widget<br>drops in here
+    <div class="widget" id="buy">
+<!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
+<div class="tt-widget"><div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/all-tickets/makerfieldoktoberfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_338592" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div><script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/all-tickets/makerfieldoktoberfest/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="true" data-inline-inherit-ref-from-url-param="" data-inline-ref="website_widget"></script></div><!-- End of Ticket Tailor Widget -->
     </div>
   </div>
 </section>
@@ -401,19 +428,43 @@ footer{padding:2.75rem 0 3.5rem;}
     <div class="where-grid">
       <div>
         <address>
-          <span class="venue">1st Ashton Scout Group</span><br>
-          6 Edgerley Place<br>
+          <span class="venue">1st Ashton Scouts</span><br>
+          Woodedge<br>
           Ashton-in-Makerfield<br>
-          Wigan <span class="mono">WN4 9JX</span>
+          Wigan <span class="mono">WN4 9JY</span>
         </address>
-        <p style="margin-top:1.1rem;"><a href="https://www.google.com/maps/search/?api=1&amp;query=6+Edgerley+Place+Ashton-in-Makerfield+WN4+9JX">Open in Google Maps</a></p>
+        <p style="margin-top:1.1rem;"><a href="https://www.google.com/maps/search/?api=1&amp;query=1st+Ashton+Scouts+Woodedge+Ashton-in-Makerfield+WN4+9JY">Open in Google Maps</a></p>
       </div>
       <dl class="facts">
-        <div><dt>Parking</dt><dd class="tbc">[To confirm]</dd></div>
-        <div><dt>Accessibility</dt><dd class="tbc">[To confirm]</dd></div>
-        <div><dt>Token stand</dt><dd class="tbc">[Card / cash]</dd></div>
-        <div><dt>Indoor</dt><dd class="tbc">[To confirm]</dd></div>
+        <div><dt>Payment</dt><dd>Card and cash</dd></div>
+        <div><dt>Town centre</dt><dd>A short walk</dd></div>
       </dl>
+    </div>
+
+    <div class="travel">
+      <div class="travel-group">
+        <h3>By bus</h3>
+        <p class="travel-intro">Ashton is well served, and we&rsquo;re a short walk from the town centre.</p>
+        <ul class="routes">
+          <li><span class="route">610</span><span class="route">611</span><span class="via">Wigan &ndash; Ashton &ndash; Golborne &ndash; Lowton &ndash; Leigh</span></li>
+          <li><span class="route">320</span><span class="via">St Helens &ndash; Haydock &ndash; Ashton-in-Makerfield &ndash; Platt Bridge &ndash; Wigan</span></li>
+          <li><span class="route">22</span><span class="via">Warrington &ndash; Winwick &ndash; Newton-le-Willows &ndash; Vulcan Village &ndash; Earlestown &ndash; Garswood &ndash; Ashton</span></li>
+          <li><span class="route">559</span><span class="via">Bolton &ndash; Westhoughton &ndash; Hindley &ndash; Platt Bridge &ndash; Ashton-in-Makerfield</span></li>
+          <li><span class="route">156</span><span class="via">Garswood &ndash; Bryn &ndash; Haydock &ndash; St Helens &ndash; Sutton</span></li>
+          <li><span class="route">157</span><span class="via">Ashton-in-Makerfield &ndash; Crank &ndash; Rainford &ndash; Rainford Junction</span></li>
+          <li><span class="route">602</span><span class="via">Ashton-in-Makerfield &ndash; Garswood &ndash; Haydock &ndash; Vulcan Village</span></li>
+        </ul>
+      </div>
+      <div class="travel-group">
+        <h3>By train</h3>
+        <p class="travel-intro">Three stations within easy reach, then a short bus or taxi.</p>
+        <ul class="stations">
+          <li><span class="stn">Garswood</span><span class="via">Liverpool, St Helens, Wigan and Preston</span></li>
+          <li><span class="stn">Bryn</span><span class="via">Liverpool, St Helens, Wigan and Preston</span></li>
+          <li><span class="stn">Newton-le-Willows</span><span class="via">Liverpool, Rainhill, Irlam and Manchester</span></li>
+        </ul>
+        <p class="travel-note">If you&rsquo;re drinking, leave the car at home — it&rsquo;s the whole point of the bus routes above.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -469,7 +520,7 @@ footer{padding:2.75rem 0 3.5rem;}
         <p>Tell us what you&rsquo;d like and we&rsquo;ll put a package together.</p>
       </div>
     </div>
-    <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="mailto:info@makerfieldoktoberfest.co.uk">Email</a></p>
+    <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="mailto:info@makerfieldoktoberfest.co.uk?subject=Makerfield%20Oktoberfest%20sponsorship">Email</a></p>
   </div>
 </section>
 
@@ -481,7 +532,7 @@ footer{padding:2.75rem 0 3.5rem;}
     </div>
     <p>Makerfield Oktoberfest is run by the Rotary Club of Newton-le-Willows, and every penny of profit goes to good causes.</p>
     <p>Have a brilliant day, and do a bit of good while you&rsquo;re at it.</p>
-    <p style="font-size:.92rem;color:var(--muted);margin-top:1.5rem;"><span class="tbc">Registered Charity number: 1036332</span></p>
+    <p style="font-size:.92rem;color:var(--muted);margin-top:1.5rem;">Rotary Club of Newton-le-Willows &middot; Registered charity no. <span class="mono">1036332</span></p>
   </div>
 </section>
 
@@ -513,13 +564,13 @@ footer{padding:2.75rem 0 3.5rem;}
   "description":"A Bavarian beer festival in Ashton-in-Makerfield with German beer, local craft ale and cider, hot street food and live music. Run by the Rotary Club of Newton-le-Willows.",
   "location":{
     "@type":"Place",
-    "name":"1st Ashton Scout Group",
+    "name":"1st Ashton Scouts",
     "address":{
       "@type":"PostalAddress",
-      "streetAddress":"6 Edgerley Place",
+      "streetAddress":"Woodedge",
       "addressLocality":"Ashton-in-Makerfield",
       "addressRegion":"Wigan",
-      "postalCode":"WN4 9JX",
+      "postalCode":"WN4 9JY",
       "addressCountry":"GB"
     }
   },
@@ -543,13 +594,13 @@ footer{padding:2.75rem 0 3.5rem;}
   "description":"A Bavarian beer festival in Ashton-in-Makerfield with German beer, local craft ale and cider, hot street food and live music. Run by the Rotary Club of Newton-le-Willows.",
   "location":{
     "@type":"Place",
-    "name":"1st Ashton Scout Group",
+    "name":"1st Ashton Scouts",
     "address":{
       "@type":"PostalAddress",
-      "streetAddress":"6 Edgerley Place",
+      "streetAddress":"Woodedge",
       "addressLocality":"Ashton-in-Makerfield",
       "addressRegion":"Wigan",
-      "postalCode":"WN4 9JX",
+      "postalCode":"WN4 9JY",
       "addressCountry":"GB"
     }
   },
